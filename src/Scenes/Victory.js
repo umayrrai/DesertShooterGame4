@@ -19,8 +19,8 @@ class Victory extends Phaser.Scene {
         }).setOrigin(0.5);
 
         // Flavor text
-        this.add.text(240, 130, "You defeated the Desert Boss!", {
-            fontSize: "10px", fill: "#ffffff"
+        this.add.text(240, 130, "You defeated the Dungeon Boss!", {
+            fontSize: "20px", fill: "#ffffff"
         }).setOrigin(0.5);
 
         // Display the player's completion time
