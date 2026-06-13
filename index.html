@@ -1,20 +1,42 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Desert Descent</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dungeon Descent</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { background: #000; display: flex; justify-content: center; align-items: center; height: 100vh; }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        width: 100%;
+        height: 100%;
+        background: #000;
+        overflow: hidden;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <script src="lib/phaser.js"></script>
+    <script src="src/Prefabs/Player.js"></script>
+    <script src="src/Prefabs/Charger.js"></script>
+    <script src="src/Prefabs/Tank.js"></script>
+    <script src="src/Prefabs/EnemyBullet.js"></script>
+    <script src="src/Prefabs/Shooter.js"></script>
+    <script src="src/Prefabs/Bullet.js"></script>
     <script src="src/Scenes/Load.js"></script>
     <script src="src/Scenes/TitleScreen.js"></script>
     <script src="src/Scenes/Level1.js"></script>
+    <script src="src/Scenes/Level2.js"></script>
+    <script src="src/Scenes/Level3.js"></script>
+    <script src="src/Prefabs/HomingBullet.js"></script>
+    <script src="src/Prefabs/Boss.js"></script>
+    <script src="src/Scenes/Boss1.js"></script>
+    <script src="src/Scenes/Victory.js"></script>
     <script src="src/Scenes/GameOver.js"></script>
     <script src="src/main.js"></script>
-</body>
+  </body>
 </html>

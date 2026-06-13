@@ -1,18 +1,15 @@
-class Level1 extends Phaser.Scene {
+class Level3 extends Phaser.Scene {
     constructor() {
-        super("Level1");
+        super("Level3");
     }
 
     create() {
         // Load and create the tilemap with ground and wall layers
-        const map = this.make.tilemap({ key: "level1" });
+        const map = this.make.tilemap({ key: "level3" });
         const tileset = map.addTilesetImage("desert", "tiles_packed");
 
-        // Record the start time for the completion timer
-        window.gameStartTime = Date.now();
-
         const groundLayer = map.createLayer("Ground", tileset, 0, 0);
-        this.wallsLayer = map.createLayer("Walls", tileset, 0, 0);
+        this.wallsLayer = map.createLayer("Wall", tileset, 0, 0);
 
         // Enable collision on tiles marked with collides: true in Tiled
         this.wallsLayer.setCollisionByProperty({ collides: true });
@@ -21,7 +18,7 @@ class Level1 extends Phaser.Scene {
         this.physics.world.setBounds(0, 0, map.widthInPixels, map.heightInPixels);
         this.cameras.main.setBounds(0, 0, map.widthInPixels, map.heightInPixels);
 
-        // Spawn the player in the center of the map and have the camera follow them
+        // Spawn the player in the center and have the camera follow them
         this.player = new Player(this, map.widthInPixels / 2, map.heightInPixels / 2);
         this.cameras.main.startFollow(this.player, true, 0.1, 0.1);
 
@@ -30,18 +27,18 @@ class Level1 extends Phaser.Scene {
         this.enemyBullets = this.physics.add.group({ classType: EnemyBullet, runChildUpdate: false });
         this.enemies = this.physics.add.group({ classType: Charger, runChildUpdate: false });
 
-        // Build the enemy spawn queue for this level: 6 chargers, 3 shooters, 1 tank
+        // Build the enemy spawn queue for this level: 12 chargers, 12 shooters, 6 tanks
         this.spawnQueue = [];
-        for (let i = 0; i < 6; i++) this.spawnQueue.push("Charger");
-        for (let i = 0; i < 3; i++) this.spawnQueue.push("Shooter");
-        for (let i = 0; i < 1; i++) this.spawnQueue.push("Tank");
+        for (let i = 0; i < 12; i++) this.spawnQueue.push("Charger");
+        for (let i = 0; i < 12; i++) this.spawnQueue.push("Shooter");
+        for (let i = 0; i < 6; i++) this.spawnQueue.push("Tank");
         Phaser.Utils.Array.Shuffle(this.spawnQueue);
 
         // Track how many enemies are left in total
         this.totalEnemies = this.spawnQueue.length;
         this.enemiesRemaining = this.totalEnemies;
         this.levelCleared = false;
-        this.fireRate = 700;
+        this.fireRate = 300;
         this.maxEnemiesOnScreen = 10;
 
         // Spawn the first 3 enemies immediately
@@ -164,15 +161,15 @@ class Level1 extends Phaser.Scene {
         this.healthText.setText("HP: " + this.player.health);
         this.enemyText.setText("Enemies: " + this.enemiesRemaining);
 
-        // When all enemies are defeated, transition to Level 2
+        // When all enemies are defeated, transition to the Boss
         if (this.enemiesRemaining === 0 && !this.levelCleared) {
             this.levelCleared = true;
             this.spawnTimer.remove();
-            this.add.text(240, 160, "Moving to Next Level...", {
+            this.add.text(240, 160, "Moving to Boss...", {
                 fontSize: "12px", fill: "#ffffff"
             }).setOrigin(0.5).setScrollFactor(0).setDepth(10);
             this.time.delayedCall(1500, () => {
-                this.scene.start("Level2");
+                this.scene.start("Boss1");
             });
         }
     }
