@@ -69,11 +69,11 @@ class Boss1 extends Phaser.Scene {
 
         // HUD - display player health and boss health in the top left
         this.healthText = this.add.text(10, 10, "HP: 3", {
-            fontSize: "8px", fill: "#ffffff"
+            fontSize: "14px", fill: "#ffffff"
         }).setScrollFactor(0).setDepth(10);
 
         this.bossHealthText = this.add.text(10, 20, "Boss HP: 50", {
-            fontSize: "8px", fill: "#ff0000"
+            fontSize: "14px", fill: "#ff0000"
         }).setScrollFactor(0).setDepth(10);
 
         this.shootCooldown = 0;
@@ -112,7 +112,7 @@ class Boss1 extends Phaser.Scene {
         if (!this.boss.active && !this.bossDefeated) {
             this.bossDefeated = true;
             this.add.text(240, 160, "You Win!", {
-                fontSize: "16px", fill: "#ffff00"
+                fontSize: "20px", fill: "#ffff00"
             }).setOrigin(0.5).setScrollFactor(0).setDepth(10);
             this.time.delayedCall(3000, () => {
                 this.scene.start("victory");

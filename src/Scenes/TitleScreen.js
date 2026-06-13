@@ -10,7 +10,7 @@ class TitleScreen extends Phaser.Scene {
 
         // Credits
         this.add.text(240, 300, "Created by Umayr Rai", {
-            fontSize: "8px", fill: "#555555"
+            fontSize: "14px", fill: "#555555"
         }).setOrigin(0.5);
 
         // Start Level 1 when the player presses SPACE

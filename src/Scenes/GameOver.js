@@ -40,7 +40,7 @@ class GameOver extends Phaser.Scene {
 
         // Credits
         this.add.text(240, 300, "Created by Umayr Rai", {
-            fontSize: "8px",
+            fontSize: "14px",
             fill: "#555555"
         }).setOrigin(0.5);
 

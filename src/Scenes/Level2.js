@@ -98,11 +98,11 @@ class Level2 extends Phaser.Scene {
 
         // HUD - display player health and enemy count in the top left
         this.healthText = this.add.text(10, 10, "HP: 3", {
-            fontSize: "8px", fill: "#ffffff"
+            fontSize: "14px", fill: "#ffffff"
         }).setScrollFactor(0).setDepth(10);
 
         this.enemyText = this.add.text(10, 20, "Enemies: " + this.enemiesRemaining, {
-            fontSize: "8px", fill: "#ffffff"
+            fontSize: "14px", fill: "#ffffff"
         }).setScrollFactor(0).setDepth(10);
 
         this.shootCooldown = 0;
@@ -166,7 +166,7 @@ class Level2 extends Phaser.Scene {
             this.levelCleared = true;
             this.spawnTimer.remove();
             this.add.text(240, 160, "Moving to Next Level...", {
-                fontSize: "12px", fill: "#ffffff"
+                fontSize: "14px", fill: "#ffffff"
             }).setOrigin(0.5).setScrollFactor(0).setDepth(10);
             this.time.delayedCall(1500, () => {
                 this.scene.start("Level3");
