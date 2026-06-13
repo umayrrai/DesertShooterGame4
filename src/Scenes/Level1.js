@@ -32,9 +32,10 @@ class Level1 extends Phaser.Scene {
 
         // Build the enemy spawn queue for this level: 6 chargers, 3 shooters, 1 tank
         this.spawnQueue = [];
-        for (let i = 0; i < 6; i++) this.spawnQueue.push("Charger");
-        for (let i = 0; i < 3; i++) this.spawnQueue.push("Shooter");
-        for (let i = 0; i < 1; i++) this.spawnQueue.push("Tank");
+        // for (let i = 0; i < 6; i++) this.spawnQueue.push("Charger");
+        // for (let i = 0; i < 3; i++) this.spawnQueue.push("Shooter");
+        // for (let i = 0; i < 1; i++) this.spawnQueue.push("Tank");
+        this.spawnQueue.push("Charger");
         Phaser.Utils.Array.Shuffle(this.spawnQueue);
 
         // Track how many enemies are left in total
